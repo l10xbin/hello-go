@@ -7,7 +7,13 @@ import (
 )
 
 func sayHello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello World")
+	hostName, err := os.Hostname()
+	hello := "Hello world"
+	if err == nil {
+		hello = "Hello World from " + hostName + "!"	
+	}
+
+	fmt.Fprint(w, hello)
 }
 
 func sayPongJSON(w http.ResponseWriter, r *http.Request) {
