@@ -4,26 +4,13 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+
+	"github.com/l10xbin/hello-go/src/handler"
 )
 
-func sayHello(w http.ResponseWriter, r *http.Request) {
-	hostName, err := os.Hostname()
-	hello := "Hello world"
-	if err == nil {
-		hello = "Hello World from " + hostName + "!"	
-	}
-
-	fmt.Fprint(w, hello)
-}
-
-func sayPongJSON(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprint(w, `{"message":"pong"}`)
-}
-
 func main() {
-	http.HandleFunc("/", sayHello)
-	http.HandleFunc("/ping", sayPongJSON)
+	http.HandleFunc("/", handler.SayHello)
+	http.HandleFunc("/ping", handler.SayPongJSON)
 
 	// get port env var
 	port := "8080"
