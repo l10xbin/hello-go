@@ -1,0 +1,12 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: golang-hello-world
+spec:
+  containers:
+  - name: golang-hello-world
+    image: l10xbin/my-golang-app
+    ports: 
+      - name: web
+        containerPort: 8080

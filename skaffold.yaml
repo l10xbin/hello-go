@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1beta8
+kind: Config
+build:
+  artifacts:
+  - image: l10xbin/my-golang-app
+  tagPolicy:
+    dateTime: 
+      format: 2006-01-02_15-04-05.999_MST
+      timezone:
+deploy:
+  kubectl:
+    manifests:
+      - k8s-*
