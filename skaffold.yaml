@@ -11,15 +11,15 @@ deploy:
 #  kubectl:
 #    manifests:
 #      - k8s-*
-  helm:
-    releases:
-    - name: skaffold-helm
-      chartPath: helm
+#  helm:
+#    releases:
+#    - name: skaffold-helm
+#      chartPath: helm
       #wait: true
       #valuesFiles:
       #- helm-skaffold-values.yaml
-      values:
-        image: l10xbin/my-golang-app
+#      values:
+#        image: l10xbin/my-golang-app
       #recreatePods will pass --recreate-pods to helm upgrade
       #recreatePods: true
       #overrides builds an override values.yaml file to run with the helm deploy
@@ -29,3 +29,5 @@ deploy:
       #setValues get appended to the helm deploy with --set.
       #setValues:
         #some.key: someValue
+  kustomize: 
+    path: kustomize
