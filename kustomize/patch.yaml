@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kustomize-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: kustomize-test
+        image: l10xbin/my-golang-app
+        ports:
+          - containerPort: 8080
